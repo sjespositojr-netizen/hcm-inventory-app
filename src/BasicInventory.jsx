@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 
 const STORAGE_KEYS = {
-  activeItems: 'activeItems_v5',
+  activeItems: 'activeItems_v7',
   savedSnapshots: 'savedSnapshots',
 }
 
@@ -17,7 +17,7 @@ const sampleItems = [
   { id: 'INV-009', itemName: 'Fruit – Peaches', itemCode: 9, category: 'Beverage', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-010', itemName: 'Fruit – Raspberries', itemCode: 10, category: 'Beverage', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-011', itemName: 'Fruit – Strawberries', itemCode: 11, category: 'Beverage', isPriority: false, unitType: 'Piece', count: 0 },
-  { id: 'INV-012', itemName: 'Flowers – Edible (Mix Flowers)', itemCode: 12, category: 'Beverage', isPriority: true, unitType: 'Piece', count: 0 },
+  { id: 'INV-012', itemName: 'Flowers – Butterfly Pea Flower', itemCode: 12, category: 'Beverage', isPriority: true, unitType: 'Piece', count: 0 },
   { id: 'INV-013', itemName: 'Flowers – Lavender Flowers', itemCode: 13, category: 'Beverage', isPriority: true, unitType: 'Piece', count: 0 },
   { id: 'INV-014', itemName: 'Lettuce – Iceberg', itemCode: 14, category: 'Food', isPriority: true, unitType: 'Piece', count: 0 },
   { id: 'INV-015', itemName: 'Peppers – Mixed Color Bell', itemCode: 15, category: 'Food', isPriority: false, unitType: 'Piece', count: 0 },
@@ -84,37 +84,37 @@ const sampleItems = [
   { id: 'INV-076', itemName: 'Spices – Scorpion Pepper', itemCode: 76, category: 'Food', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-077', itemName: 'Spices – Carolina Reaper', itemCode: 77, category: 'Food', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-078', itemName: 'Aluminum Foil – Standard Roll', itemCode: 78, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
-  { id: 'INV-079', itemName: 'Aluminum Foil – Heavy Duty', itemCode: 79, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
-  { id: 'INV-080', itemName: 'Aluminum Tray – 9 Size Medium', itemCode: 80, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-079', itemName: 'Aluminum Tray – Half Size Tray', itemCode: 79, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-080', itemName: 'Aluminum Tray – Half Size Lid', itemCode: 80, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-081', itemName: 'Bags – Foil Quart (Sandwich)', itemCode: 81, category: 'Non-Food', isPriority: false, unitType: 'Case', count: 0 },
-  { id: 'INV-082', itemName: 'Bags – Paper 5 x 5 x 3.5 (Fried)', itemCode: 82, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
-  { id: 'INV-083', itemName: 'Bags – Paper 20#', itemCode: 83, category: 'Non-Food', isPriority: false, unitType: 'Case', count: 0 },
-  { id: 'INV-084', itemName: 'Bags – Paper 200', itemCode: 84, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
-  { id: 'INV-085', itemName: 'Bags – Plastic 8x4x18', itemCode: 85, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
-  { id: 'INV-086', itemName: 'Box – Catering Half Pan Corrugated', itemCode: 86, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
-  { id: 'INV-087', itemName: 'Box – Catering Full Pan Tube', itemCode: 87, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
-  { id: 'INV-088', itemName: 'Box – Paper Takeout, large (8x5x3)', itemCode: 88, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
-  { id: 'INV-089', itemName: 'Box – Paper Takeout, small (4.5x3)', itemCode: 89, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
-  { id: 'INV-090', itemName: 'Container – 32/24 oz', itemCode: 90, category: 'Non-Food', isPriority: false, unitType: 'Case', count: 0 },
+  { id: 'INV-082', itemName: 'Bags – Paper 6" x .75" x 6.5" (Fries)', itemCode: 82, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-083', itemName: 'Bags – Paper 16#', itemCode: 83, category: 'Non-Food', isPriority: false, unitType: 'Case', count: 0 },
+  { id: 'INV-084', itemName: 'Bags – Paper 20#', itemCode: 84, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-085', itemName: 'Bags – Plastic, 1/6', itemCode: 85, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-086', itemName: 'Box – Catering Box, Half', itemCode: 86, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-087', itemName: 'Box – Catering Tray, Full', itemCode: 87, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-088', itemName: 'Box – Paper Takeout, large (9"x5"x4")', itemCode: 88, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-089', itemName: 'Box – Paper Takeout, small (7"x4"x3")', itemCode: 89, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-090', itemName: 'PLACEHOLDER – FIX ME?', itemCode: 90, category: 'Non-Food', isPriority: false, unitType: 'Case', count: 0 },
   { id: 'INV-091', itemName: 'Cups – 16 oz', itemCode: 91, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-092', itemName: 'Cups – 20 oz', itemCode: 92, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
-  { id: 'INV-093', itemName: 'Cups – Lids', itemCode: 93, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-093', itemName: 'Cups – 16/24 oz Lids', itemCode: 93, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-094', itemName: 'Cutlery – Forks, Heavy Weight', itemCode: 94, category: 'Non-Food', isPriority: false, unitType: 'Case', count: 0 },
   { id: 'INV-095', itemName: 'Cutlery – KFC, 4 piece', itemCode: 95, category: 'Non-Food', isPriority: false, unitType: 'Case', count: 0 },
   { id: 'INV-096', itemName: 'Cutlery – Knives, Heavy Weight', itemCode: 96, category: 'Non-Food', isPriority: false, unitType: 'Case', count: 0 },
   { id: 'INV-097', itemName: 'Cutlery – Teaspoons', itemCode: 97, category: 'Non-Food', isPriority: false, unitType: 'Case', count: 0 },
-  { id: 'INV-098', itemName: 'Cutlery – Tablespoons', itemCode: 98, category: 'Non-Food', isPriority: false, unitType: 'Case', count: 0 },
-  { id: 'INV-099', itemName: 'Deli Container – 8oz', itemCode: 99, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
-  { id: 'INV-100', itemName: 'Deli Container – 16oz', itemCode: 100, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-098', itemName: 'Cutlery – Tablespoons, Heavy Weight', itemCode: 98, category: 'Non-Food', isPriority: false, unitType: 'Case', count: 0 },
+  { id: 'INV-099', itemName: 'Deli Container – 8 oz', itemCode: 99, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-100', itemName: 'Deli Container – 16 oz', itemCode: 100, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-101', itemName: 'Deli Container – 32 oz', itemCode: 101, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-102', itemName: 'Deli Container – Lids', itemCode: 102, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
-  { id: 'INV-103', itemName: 'Deli Wrap – 12x12 Black Check', itemCode: 103, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
-  { id: 'INV-104', itemName: 'Deli Wrap – 12x12 Red Check', itemCode: 104, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-103', itemName: 'Deli Wrap – 12x12 Black Checkered', itemCode: 103, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-104', itemName: 'Deli Wrap – 12x12 Red Checkered', itemCode: 104, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-105', itemName: 'Drink Carrier – 4 cup Compostable', itemCode: 105, category: 'Non-Food', isPriority: false, unitType: 'Case', count: 0 },
-  { id: 'INV-106', itemName: 'Foil Wrap – 9x9x3 (1 piece)', itemCode: 106, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-106', itemName: 'Foil Wrap – Cushioned, 10.5x14', itemCode: 106, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-107', itemName: 'Napkins – Kraft', itemCode: 107, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-108', itemName: 'Paper Towel Roll – Kraft Hardwound', itemCode: 108, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
-  { id: 'INV-109', itemName: 'Paper Towel – 2 Fold', itemCode: 109, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-109', itemName: 'Paper Towel – Z Fold', itemCode: 109, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-110', itemName: 'Plastic Wrap – 12"x2000\'', itemCode: 110, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-111', itemName: 'Ramekin lids – 1.5 oz (1.5 oz/2 oz)', itemCode: 111, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-112', itemName: 'Ramekin lids – 4 oz (3.25 oz/4 oz)', itemCode: 112, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
@@ -124,29 +124,29 @@ const sampleItems = [
   { id: 'INV-116', itemName: 'Receipt Paper – 3 1/8" Thermal', itemCode: 116, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-117', itemName: 'Straws – 7.75" Wrapped', itemCode: 117, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-118', itemName: 'Straws – 10" Jumbo Shake', itemCode: 118, category: 'Non-Food', isPriority: false, unitType: 'Case', count: 0 },
-  { id: 'INV-119', itemName: 'Tray – Hot/Dog Checkerboard', itemCode: 119, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-119', itemName: 'Tray – Hot Dog Checkerboard', itemCode: 119, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-120', itemName: 'Tray – 1lb, checkerboard', itemCode: 120, category: 'Non-Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-121', itemName: 'Tray – 2lb, checkerboard', itemCode: 121, category: 'Non-Food', isPriority: false, unitType: 'Case', count: 0 },
   { id: 'INV-122', itemName: 'Tray – 3lb, checkerboard', itemCode: 122, category: 'Non-Food', isPriority: false, unitType: 'Case', count: 0 },
   { id: 'INV-123', itemName: 'Tray – 5lb, checkerboard', itemCode: 123, category: 'Non-Food', isPriority: false, unitType: 'Case', count: 0 },
-  { id: 'INV-124', itemName: 'Mesh', itemCode: 124, category: 'Cleaning Supplies', isPriority: false, unitType: 'Case', count: 0 },
-  { id: 'INV-125', itemName: 'Degreaser – Heavy', itemCode: 125, category: 'Cleaning Supplies', isPriority: true, unitType: 'Case', count: 0 },
+  { id: 'INV-124', itemName: 'Bleach', itemCode: 124, category: 'Cleaning Supplies', isPriority: false, unitType: 'Case', count: 0 },
+  { id: 'INV-125', itemName: 'Can Liner – 55 gallon', itemCode: 125, category: 'Cleaning Supplies', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-126', itemName: 'Degreaser, Slash', itemCode: 126, category: 'Cleaning Supplies', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-127', itemName: 'Degreaser, Oven and Grill Aerosol', itemCode: 127, category: 'Cleaning Supplies', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-128', itemName: 'Degreaser Wipes', itemCode: 128, category: 'Cleaning Supplies', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-129', itemName: 'Dish Soap – Emerald', itemCode: 129, category: 'Cleaning Supplies', isPriority: true, unitType: 'Piece', count: 0 },
-  { id: 'INV-130', itemName: 'Floor Cleaner – Degreasing cleaner', itemCode: 130, category: 'Cleaning Supplies', isPriority: true, unitType: 'Piece', count: 0 },
+  { id: 'INV-130', itemName: 'Floor Cleaner – Degreasing Cleaner', itemCode: 130, category: 'Cleaning Supplies', isPriority: true, unitType: 'Piece', count: 0 },
   { id: 'INV-131', itemName: 'Gloves – Poly, Large', itemCode: 131, category: 'Cleaning Supplies', isPriority: false, unitType: 'Case', count: 0 },
   { id: 'INV-132', itemName: 'Gloves – Vinyl, Large', itemCode: 132, category: 'Cleaning Supplies', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-133', itemName: 'Gloves – Vinyl, XL', itemCode: 133, category: 'Cleaning Supplies', isPriority: true, unitType: 'Case', count: 0 },
-  { id: 'INV-134', itemName: 'Hard Soap – Softcare', itemCode: 134, category: 'Cleaning Supplies', isPriority: false, unitType: 'Piece', count: 0 },
-  { id: 'INV-135', itemName: 'Mop – #22', itemCode: 135, category: 'Cleaning Supplies', isPriority: true, unitType: 'Piece', count: 0 },
+  { id: 'INV-134', itemName: 'Hand Soap – Softsoap', itemCode: 134, category: 'Cleaning Supplies', isPriority: false, unitType: 'Piece', count: 0 },
+  { id: 'INV-135', itemName: 'Mop – #32', itemCode: 135, category: 'Cleaning Supplies', isPriority: true, unitType: 'Piece', count: 0 },
   { id: 'INV-136', itemName: 'Sanitizer Tablets', itemCode: 136, category: 'Cleaning Supplies', isPriority: false, unitType: 'Piece', count: 0 },
-  { id: 'INV-137', itemName: 'MaintenanceOil – Heavy Duty', itemCode: 137, category: 'Cleaning Supplies', isPriority: false, unitType: 'Piece', count: 0 },
+  { id: 'INV-137', itemName: 'Scouring Pad – Heavy Duty', itemCode: 137, category: 'Cleaning Supplies', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-138', itemName: 'Stainlesssteel Polish', itemCode: 138, category: 'Cleaning Supplies', isPriority: false, unitType: 'Piece', count: 0 },
-  { id: 'INV-139', itemName: 'Stainless Steel Scourboxes', itemCode: 139, category: 'Cleaning Supplies', isPriority: false, unitType: 'Piece', count: 0 },
+  { id: 'INV-139', itemName: 'Stainless Steel Scrubbers', itemCode: 139, category: 'Cleaning Supplies', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-140', itemName: 'Toilet Paper', itemCode: 140, category: 'Cleaning Supplies', isPriority: true, unitType: 'Piece', count: 0 },
-  { id: 'INV-141', itemName: 'Wood Cleaner – Murphy Oil Soap', itemCode: 141, category: 'Cleaning Supplies', isPriority: false, unitType: 'Piece', count: 0 },
+  { id: 'INV-141', itemName: 'Wood Cleaner – Murphys Oil Soap', itemCode: 141, category: 'Cleaning Supplies', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-142', itemName: 'Coca-Cola', itemCode: 142, category: 'Beverage', isPriority: false, unitType: 'Case', count: 0 },
   { id: 'INV-143', itemName: 'Diet Coke', itemCode: 143, category: 'Beverage', isPriority: false, unitType: 'Case', count: 0 },
   { id: 'INV-144', itemName: 'Dr. Pepper', itemCode: 144, category: 'Beverage', isPriority: false, unitType: 'Case', count: 0 },
@@ -158,7 +158,7 @@ const sampleItems = [
   { id: 'INV-150', itemName: 'Poland Spring 20 oz', itemCode: 150, category: 'Beverage', isPriority: false, unitType: 'Case', count: 0 },
 ]
 
-const categoryOptions = ['All', 'Food', 'Beverage', 'Non-food', 'Cleaning Supplies', 'Priority']
+const categoryOptions = ['All', 'Priority','Food', 'Beverage', 'Non-Food', 'Cleaning Supplies']
 
 function readStoredValue(key, fallback) {
   if (typeof window === 'undefined') return fallback
@@ -296,7 +296,7 @@ export default function BasicInventory() {
       id: createId(),
       label,
       timestamp,
-      items: activeItems.map((item) => ({ ...item })),
+      items: activeItems.filter((item) => item.count > 0).map((item) => ({ ...item })),
     }
 
     const nextSnapshots = [snapshot, ...savedSnapshots].slice(0, 7)
@@ -540,7 +540,7 @@ export default function BasicInventory() {
 
                       {isExpanded && (
                         <div className="mt-3 space-y-1.5 border-t border-stone-200 pt-3">
-                          {snapshot.items.map((item) => (
+                          {snapshot.items.filter((item) => item.count > 0).map((item) => (
                             <div key={item.id} className="flex items-center justify-between rounded-xl bg-white px-3 py-2 text-xs font-semibold">
                               <span className="text-zinc-800">{item.itemName} ({item.unitType})</span>
                               <span className="rounded bg-red-100 px-2 py-0.5 font-bold text-red-700">{item.count}</span>
