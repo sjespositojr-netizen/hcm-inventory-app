@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 
 const STORAGE_KEYS = {
-  activeItems: 'activeItems_v11',
+  activeItems: 'activeItems_v1.10',
   savedSnapshots: 'savedSnapshots',
 }
 
@@ -32,7 +32,7 @@ const sampleItems = [
   { id: 'INV-024', itemName: 'Cheese – Cheddar, Block', itemCode: 24, category: 'Food', isPriority: true, unitType: 'Piece', count: 0 },
   { id: 'INV-025', itemName: 'Cheese – Cheddar, Fancy Shredded', itemCode: 25, category: 'Food', isPriority: true, unitType: 'Piece', count: 0 },
   { id: 'INV-026', itemName: 'Cheese – Cheddar & Monterey Jack Blend', itemCode: 26, category: 'Food', isPriority: false, unitType: 'Piece', count: 0 },
-  { id: 'INV-027', itemName: 'Heavy Cream – 36%', itemCode: 27, category: 'Beverage', isPriority: false, unitType: 'Piece', count: 0 },
+  { id: 'INV-027', itemName: 'Heavy Cream – 36%', itemCode: 27, category: 'Food', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-028', itemName: 'Ice Cream – Vanilla', itemCode: 28, category: 'Food', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-029', itemName: 'Milk, Whole', itemCode: 29, category: 'Beverage', isPriority: true, unitType: 'Piece', count: 0 },
   { id: 'INV-030', itemName: 'Corn Nuggets', itemCode: 30, category: 'Food', isPriority: false, unitType: 'Case', count: 0 },
@@ -60,9 +60,9 @@ const sampleItems = [
   { id: 'INV-052', itemName: 'Sauce – Ketchup Bottles', itemCode: 52, category: 'Food', isPriority: true, unitType: 'Piece', count: 0 },
   { id: 'INV-053', itemName: 'Sauce – Ketchup Packets', itemCode: 53, category: 'Food', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-054', itemName: 'Sauce – Worcestershire', itemCode: 54, category: 'Food', isPriority: false, unitType: 'Piece', count: 0 },
-  { id: 'INV-055', itemName: 'Shakes – Oreo Pieces', itemCode: 55, category: 'Food', isPriority: false, unitType: 'Piece', count: 0 },
+  { id: 'INV-055', itemName: 'Shakes – Oreo Pieces', itemCode: 55, category: 'Beverage', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-056', itemName: 'Shakes – Rainbow Cookies', itemCode: 56, category: 'Beverage', isPriority: false, unitType: 'Piece', count: 0 },
-  { id: 'INV-057', itemName: 'Shakes – Peanut Butter Cup', itemCode: 57, category: 'Food', isPriority: false, unitType: 'Piece', count: 0 },
+  { id: 'INV-057', itemName: 'Shakes – Peanut Butter Cup', itemCode: 57, category: 'Beverage', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-058', itemName: 'Spices – Cayenne Pepper', itemCode: 58, category: 'Food', isPriority: true, unitType: 'Piece', count: 0 },
   { id: 'INV-059', itemName: 'Spices – Chili Powder Light', itemCode: 59, category: 'Food', isPriority: true, unitType: 'Piece', count: 0 },
   { id: 'INV-060', itemName: 'Spices – Garlic Granulated', itemCode: 60, category: 'Food', isPriority: false, unitType: 'Piece', count: 0 },
@@ -73,7 +73,7 @@ const sampleItems = [
   { id: 'INV-065', itemName: 'Sugar – Granulated White', itemCode: 65, category: 'Beverage', isPriority: true, unitType: 'Piece', count: 0 },
   { id: 'INV-066', itemName: 'Sugar – Light Brown', itemCode: 66, category: 'Food', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-067', itemName: 'Syrup – Chocolate', itemCode: 67, category: 'Beverage', isPriority: false, unitType: 'Piece', count: 0 },
-  { id: 'INV-068', itemName: 'Syrup – Pancake', itemCode: 68, category: 'Beverage', isPriority: false, unitType: 'Piece', count: 0 },
+  { id: 'INV-068', itemName: 'Syrup – Pancake', itemCode: 68, category: 'Food', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-069', itemName: 'Syrup – Strawberry', itemCode: 69, category: 'Beverage', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-070', itemName: 'Vinegar – Apple Cider Vinegar', itemCode: 70, category: 'Food', isPriority: false, unitType: 'Piece', count: 0 },
   { id: 'INV-071', itemName: 'Vinegar – Malt', itemCode: 71, category: 'Food', isPriority: true, unitType: 'Piece', count: 0 },
