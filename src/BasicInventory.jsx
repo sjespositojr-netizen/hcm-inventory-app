@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 
 const STORAGE_KEYS = {
-  activeItems: 'activeItems_v10',
+  activeItems: 'activeItems_v11',
   savedSnapshots: 'savedSnapshots',
 }
-g
+
 const sampleItems = [
   { id: 'INV-001', itemName: 'Chicken – Breast, BL/SL', itemCode: 1, category: 'Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-002', itemName: 'Chicken – Tenders, Jumbo Clipped', itemCode: 2, category: 'Food', isPriority: true, unitType: 'Case', count: 0 },
