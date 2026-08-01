@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 
 const STORAGE_KEYS = {
-  activeItems: 'activeItems_v1.10',
+  activeItems: 'activeItems_v1.11',
   savedSnapshots: 'savedSnapshots',
 }
 
