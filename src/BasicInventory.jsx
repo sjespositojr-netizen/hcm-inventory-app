@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 
 const STORAGE_KEYS = {
-  activeItems: 'activeItems_v7',
+  activeItems: 'activeItems_v10',
   savedSnapshots: 'savedSnapshots',
 }
-
+g
 const sampleItems = [
   { id: 'INV-001', itemName: 'Chicken – Breast, BL/SL', itemCode: 1, category: 'Food', isPriority: true, unitType: 'Case', count: 0 },
   { id: 'INV-002', itemName: 'Chicken – Tenders, Jumbo Clipped', itemCode: 2, category: 'Food', isPriority: true, unitType: 'Case', count: 0 },
@@ -158,7 +158,7 @@ const sampleItems = [
   { id: 'INV-150', itemName: 'Poland Spring 20 oz', itemCode: 150, category: 'Beverage', isPriority: false, unitType: 'Case', count: 0 },
 ]
 
-const categoryOptions = ['All', 'Priority','Food', 'Beverage', 'Non-Food', 'Cleaning Supplies']
+const categoryOptions = ['Priority', 'Food', 'Beverage', 'Non-Food', 'Cleaning Supplies', 'All']
 
 function readStoredValue(key, fallback) {
   if (typeof window === 'undefined') return fallback
@@ -289,7 +289,7 @@ export default function BasicInventory() {
   }
 
   const handleSaveSnapshot = () => {
-    const label = window.prompt('Name this count session', 'Kitchen Evening Run')?.trim() || 'Untitled Count'
+    const label = window.prompt('Name this count session', 'Morning Depot Run')?.trim() || 'Untitled Count'
     const timestamp = new Date().toISOString()
 
     const snapshot = {
